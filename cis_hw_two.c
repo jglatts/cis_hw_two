@@ -3,7 +3,7 @@
 CIS 1057 HW 2
 Author: John Glatts
 Program: Triangle Determanation and Area Calculation
-Contact: tug13361@gmail.com
+Contact: tug13361@temple.edu
 Due Date: 
 
 */
