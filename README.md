@@ -1,4 +1,6 @@
 # cis_hw_two
 
-Prompts user to enter length of triangle sides. Verifies is triangle is valid and finds type.
+C program to find types of triangles. 
+Prompts user to enter length of triangle sides. Verifies if the triangle is valid.
+
 WIP
