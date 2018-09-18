@@ -99,13 +99,16 @@ int triangleType(s_one, s_two, s_three, a_plus_b, a_plus_c, b_plus_c, longest_si
 	{
 		printf("\nOBTUSE TRIANGLE\n");
 	}
-	else if (right_tri_check_one + right_tri_check_two < right_tri_check_longest)
+	else if (right_tri_check_one + right_tri_check_two > right_tri_check_longest)
 	{
-		printf("\nOBTUSE TRIANGLE\n");
+		printf("\nACUTE TRIANGLE\n");
 	}
 	else {
 		printf("\nNOT EQUILATERAL TRIANGLE");		
 		printf("\nNOT RIGHT TRIANGLE\n");		
+		printf("\nNOT OBTUSE TRIANGLE\n");	
+		printf("\nNOT ACUTE TRIANGLE\n");	
+		printf("\nNOT ISOSCELES TRIANGLE\n");	
 	}
 
 	printf("Longest Side: %d\n", longest_side);
