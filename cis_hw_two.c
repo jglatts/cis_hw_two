@@ -47,21 +47,19 @@ int triangleValid(s_one, s_two, s_three){
         printf("\n\n\nVALID Triangle");
         //Get longest side
         //WIP HOW TO FIND OTHER TYPE THAN ISOCELES
+        //PUT ISOCELES UP HERE ??9
         //TRICKY BC IF ISOCELES, TRIANGLE IS EITHER RIGHT,OBTUSE, OR ACUTE 
         if(s_one > s_two && s_one > s_three){
             longest_side = s_one;   
-            s_one = s_three; // this allows user to enter sides in any given order   
-            triangleType(s_one, s_two, s_three, longest_side);// Find the type
+            triangleType(s_two, s_three, longest_side);// Find the type
         }
         else if(s_two > s_one && s_two > s_three){
             longest_side = s_two;
-            s_two = s_one; // this allows user to enter sides in any given order      
-            triangleType(s_one, s_two, s_three, longest_side);// Find the type
+            triangleType(s_one, s_three, longest_side);// Find the type
         }
-        else{
-            //ISOCELES TRIANGLE
+        else if(s_three > s_one && s_three > s_two){
             longest_side = s_three; // would it be s_three??
-            triangleType(s_one, s_two, s_three, longest_side);// Find the type
+            triangleType(s_one, s_two, longest_side);// Find the type
         }
     }
     else{
@@ -72,34 +70,34 @@ int triangleValid(s_one, s_two, s_three){
 }
 
 
-int triangleType(s_one, s_two, s_three, a_plus_b, longest_side){
+int triangleType(side_a, side_b, side_c){
     // Figure out type of triangle
-    int right_tri_check_one, right_tri_check_two, right_tri_check_longest;
+    int side_a_squared, side_b_squared, side_c_squared;
 
-    right_tri_check_one = pow(s_one, 2); 
-    right_tri_check_two = pow(s_two, 2);
-    right_tri_check_longest = pow(longest_side, 2);
+    side_a_squared = pow(side_a, 2); 
+    side_b_squared = pow(side_b, 2);
+    side_c_squared = pow(side_c, 2);
 
-    if (s_one == s_two && s_one == s_three && s_two == s_three && s_three == s_one)
+    if (side_a == side_b && side_a == side_c && side_b == side_c && side_b == side_a)
     {
         printf("\nEQUILATERAL TRIANGLE\n");
     }
-    else if (right_tri_check_one + right_tri_check_two == right_tri_check_longest)
+    else if (side_a_squared + side_b_squared == side_c_squared)
     {
         printf("\nRIGHT TRIANGLE\n");
     }
     // PLUG AND PLAY, LOGICAL ERROR 9/18/18
-    else if (right_tri_check_one + right_tri_check_two < right_tri_check_longest)
+    else if (side_a_squared + side_b_squared < side_c_squared)
     {
         printf("\nOBTUSE TRIANGLE\n");
     }
-    else if (s_one == s_two || s_one == s_three || s_two == s_three)
+    else if (side_a == side_b || side_a == side_b || side_b == side_c)
     {
         printf("\nISOCELES TRIANGLE\n");
         //after getting isoceles, find out what other type of triangle it is
     }
     // PLUG AND PLAY, LOGICAL ERROR 9/18/18
-    else if (right_tri_check_one + right_tri_check_two > right_tri_check_longest)
+    else if (side_a_squared + side_b_squared > side_c_squared)
     {
         printf("\nACUTE TRIANGLE\n");
     }
@@ -107,10 +105,10 @@ int triangleType(s_one, s_two, s_three, a_plus_b, longest_side){
         return 1;
     }
 
-    printf("\n\nLongest Side: %d\n", longest_side);
-    printf("%d\n", right_tri_check_one);
-    printf("%d\n", right_tri_check_two);
-    printf("%d\n", right_tri_check_longest);
+    printf("\n\nLongest Side: %d\n", side_c);
+    printf("%d\n", side_a_squared);
+    printf("%d\n", side_b_squared);
+    printf("%d\n", side_c_squared);
 
     return 0;
 } 
