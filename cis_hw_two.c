@@ -1,9 +1,11 @@
 /*
+
 CIS 1057 HW 2
 Author: John Glatts
 Program: Triangle Determanation and Area Calculation
 Contact: tug13361@gmail.com
-Due Date: 
+Due Date: 9/27/18 
+
 */
 
 #include <stdio.h>
@@ -53,6 +55,11 @@ int triangleValid(s_one, s_two, s_three){
             longest_side = s_one;   
             triangleType(s_two, s_three, longest_side);// Find the type
         }
+        else if (s_one == s_two && s_one != s_three || s_one == s_three && s_one != s_two || s_two == s_three && s_two != s_one)
+        {
+            printf("\nISOCELES TRIANGLE\n");
+            //after getting isoceles, find out what other type of triangle it is
+        }
         else if(s_two > s_one && s_two > s_three){
             longest_side = s_two;
             triangleType(s_one, s_three, longest_side);// Find the type
@@ -90,11 +97,6 @@ int triangleType(side_a, side_b, side_c){
     else if (side_a_squared + side_b_squared < side_c_squared)
     {
         printf("\nOBTUSE TRIANGLE\n");
-    }
-    else if (side_a == side_b || side_a == side_b || side_b == side_c)
-    {
-        printf("\nISOCELES TRIANGLE\n");
-        //after getting isoceles, find out what other type of triangle it is
     }
     // PLUG AND PLAY, LOGICAL ERROR 9/18/18
     else if (side_a_squared + side_b_squared > side_c_squared)
