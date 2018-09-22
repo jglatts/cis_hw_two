@@ -12,6 +12,8 @@ Due Date: 9/27/18
 #include <math.h>
 #include <stdlib.h>
 
+double triangleValid(double s_one, double s_two, double s_three);
+double triangleType(double side_a, double side_b, double side_c);
 
 int main(int argc, char const *argv[]) {
     // Ask user for input and store them in double variables 
@@ -23,13 +25,13 @@ int main(int argc, char const *argv[]) {
     scanf("%lf", &side_two);
     printf("\nEnter Length of Side 3\n");
     scanf("%lf", &side_three);
-    triangleValid((int)side_one, (int)side_two, (int)side_three);
+    triangleValid(side_one, side_two, side_three);
         
     return 0;
     
 }
 
-int triangleValid(s_one, s_two, s_three){
+double triangleValid(double s_one, double s_two, double s_three){
     /* Test to see if the input makes a valid triangle
        Formula:
             a + b > c
@@ -40,10 +42,6 @@ int triangleValid(s_one, s_two, s_three){
         Store the longest side in int longest_side
     
     */
-
-    int a_plus_b, a_plus_c, b_plus_c, longest_side; 
-
-
     if(s_one + s_two > s_three && s_one + s_three > s_two && s_two + s_three > s_one)
     {
         printf("\n\n\nVALID Triangle");
@@ -51,6 +49,8 @@ int triangleValid(s_one, s_two, s_three){
         //WIP HOW TO FIND OTHER TYPE THAN ISOCELES
         //PUT ISOCELES UP HERE ??9
         //TRICKY BC IF ISOCELES, TRIANGLE IS EITHER RIGHT,OBTUSE, OR ACUTE 
+        double longest_side;
+
         if(s_one > s_two && s_one > s_three){
             longest_side = s_one;   
             triangleType(s_two, s_three, longest_side);// Find the type
@@ -77,9 +77,9 @@ int triangleValid(s_one, s_two, s_three){
 }
 
 
-int triangleType(side_a, side_b, side_c){
+double triangleType(double side_a, double side_b, double side_c){
     // Figure out type of triangle
-    int side_a_squared, side_b_squared, side_c_squared;
+    double side_a_squared, side_b_squared, side_c_squared;
 
     side_a_squared = pow(side_a, 2); 
     side_b_squared = pow(side_b, 2);
@@ -107,10 +107,10 @@ int triangleType(side_a, side_b, side_c){
         return 1;
     }
 
-    printf("\n\nLongest Side: %d\n", side_c);
-    printf("%d\n", side_a_squared);
-    printf("%d\n", side_b_squared);
-    printf("%d\n", side_c_squared);
+    printf("\n\nLongest Side: %lf\n", side_c);
+    printf("%lf\n", side_a_squared);
+    printf("%lf\n", side_b_squared);
+    printf("%lf\n", side_c_squared);
 
     return 0;
 } 
