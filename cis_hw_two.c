@@ -50,7 +50,9 @@ double triangleValid(double s_one, double s_two, double s_three){
 
     if(s_one + s_two > s_three && s_one + s_three > s_two && s_two + s_three > s_one)
     {
+        
         printf("\n\n\nVALID Triangle");
+
         //double to store the longest side 
         double longest_side;
 
