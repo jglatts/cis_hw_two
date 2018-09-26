@@ -20,7 +20,7 @@ double triangleType(double side_a, double side_b, double side_c);
 
 
 int main(int argc, char const *argv[]) {
-    // Ask user for input and store them in double variables 
+    //ask user for input and store them in double variables 
     double side_one, side_two, side_three;  //user input for triangle sides 
 
     printf("\nEnter Length of Side 1\n");
@@ -57,35 +57,38 @@ double triangleValid(double s_one, double s_two, double s_three){
         //find the longest side, which side is greater
         if(s_one > s_two && s_one > s_three){
             longest_side = s_one;   
-            triangleType(s_two, s_three, longest_side);//find the type, with arguments
+            triangleType(s_two, s_three, longest_side); //find the type, with arguments
         }
         //see if the triangle ie isoceles, then run the longest side tests
         else if (s_one == s_two && s_one != s_three || s_one == s_three && s_one != s_two || s_two == s_three && s_two != s_one)
-        {     //find the longest side 
+        {     
+            //find the longest side 
             if(s_one > s_two && s_one > s_three){
                 printf("\nISOCELES TRIANGLE\n");
                 printf("ALSO: \n");
                 longest_side = s_one;   
-                triangleType(s_two, s_three, longest_side);//find the type
+                triangleType(s_two, s_three, longest_side); //find the type
             }
             else if(s_two > s_one && s_two > s_three){
                 printf("\nISOCELES TRIANGLE\n");
-                printf("ALSO: \n");                longest_side = s_two;
-                triangleType(s_one, s_three, longest_side);//find the type
+                printf("ALSO: \n");                
+                longest_side = s_two;
+                triangleType(s_one, s_three, longest_side); //find the type
             }
             else{
                 printf("\nISOCELES TRIANGLE\n");
-                printf("ALSO: \n");                longest_side = s_three; 
-                triangleType(s_one, s_two, longest_side);//find the type
+                printf("ALSO: \n");                
+                longest_side = s_three; 
+                triangleType(s_one, s_two, longest_side);   //find the type
             }
         }
         else if(s_two > s_one && s_two > s_three){
             longest_side = s_two;
-            triangleType(s_one, s_three, longest_side);//find the type
+            triangleType(s_one, s_three, longest_side); //find the type
         }
         else if(s_three > s_one && s_three > s_two){
             longest_side = s_three; 
-            triangleType(s_one, s_two, longest_side);//find the type
+            triangleType(s_one, s_two, longest_side);   //find the type
         }
         else if (s_one == s_two && s_one == s_three)
         {
@@ -112,7 +115,7 @@ double triangleType(double side_a, double side_b, double side_c){
     side_b_squared = pow(side_b, 2);
     side_c_squared = pow(side_c, 2);
 
-    //Start Heron's Formula
+    // Heron's Formula
     formula_s = (side_a + side_b + side_c) / 2; 
     multiply_sides = (formula_s - side_a) * (formula_s - side_b) * (formula_s - side_c);
     triangle_area = sqrt(multiply_sides * formula_s); 
