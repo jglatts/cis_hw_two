@@ -50,8 +50,8 @@ double triangleValid(double s_one, double s_two, double s_three){
 
     if(s_one + s_two > s_three && s_one + s_three > s_two && s_two + s_three > s_one)
     {
-        
-        printf("\n\n\nVALID Triangle");
+
+        printf("\n\n\nVALID Triangle\n");
 
         //double to store the longest side 
         double longest_side;
@@ -66,20 +66,20 @@ double triangleValid(double s_one, double s_two, double s_three){
         {     
             //find the longest side 
             if(s_one > s_two && s_one > s_three){
-                printf("\nISOCELES TRIANGLE\n");
-                printf("ALSO: \n");
+                printf("\nISOCELES TRIANGLE");
+                printf("\tALSO: ");
                 longest_side = s_one;   
                 triangleType(s_two, s_three, longest_side); //find the type
             }
             else if(s_two > s_one && s_two > s_three){
                 printf("\nISOCELES TRIANGLE\n");
-                printf("ALSO: \n");                
+                printf("\tALSO: ");                
                 longest_side = s_two;
                 triangleType(s_one, s_three, longest_side); //find the type
             }
             else{
                 printf("\nISOCELES TRIANGLE\n");
-                printf("ALSO: \n");                
+                printf("\tALSO: ");                
                 longest_side = s_three; 
                 triangleType(s_one, s_two, longest_side);   //find the type
             }
@@ -101,7 +101,7 @@ double triangleValid(double s_one, double s_two, double s_three){
     }
     else{
         printf("\n\nNOT A VALID TRIANGLE\n\n");
-        return 1; // end the program if input is not valid 
+        return 1; //end the program if input is not valid 
     }
     return 0;
 }
@@ -117,22 +117,22 @@ double triangleType(double side_a, double side_b, double side_c){
     side_b_squared = pow(side_b, 2);
     side_c_squared = pow(side_c, 2);
 
-    // Heron's Formula
+    //Heron's Formula
     formula_s = (side_a + side_b + side_c) / 2; 
     multiply_sides = (formula_s - side_a) * (formula_s - side_b) * (formula_s - side_c);
     triangle_area = sqrt(multiply_sides * formula_s); 
 
     if (side_a_squared + side_b_squared == side_c_squared)
     {
-        printf("\nRIGHT TRIANGLE\n");
+        printf("RIGHT TRIANGLE\n");
     }
     else if (side_a_squared + side_b_squared < side_c_squared)
     {
-        printf("\nOBTUSE TRIANGLE\n");
+        printf("OBTUSE TRIANGLE\n");
     }
     else if (side_a_squared + side_b_squared > side_c_squared)
     {
-        printf("\nACUTE TRIANGLE\n");
+        printf("ACUTE TRIANGLE\n");
     }
     else {
         return 1;
